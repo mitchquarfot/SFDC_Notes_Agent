@@ -1,0 +1,33 @@
+{
+  "run_id": "run_20260115T004637Z_65f4d7",
+  "created_at_iso": "2026-01-15T00:46:37.784520+00:00",
+  "notes": [
+    {
+      "opportunity_name": "call transcript  Snowflake    CareTrust  Account Updates & Intro",
+      "account_name": "CareTrust REIT",
+      "opportunity_id": "006VI00000t16ZyYAI",
+      "executive_summary": "Snowflake <> CareTrust: Account Updates & Intro Riley Babcock with CareTrust REIT Recorded on Jan 12, 2026 via Zoom, 48m Participants Snowflake Riley Babcock, Account Executive, Commercial Acquisition Mitch Quarfot, Associate Solution Engineer CareTrust REIT D",
+      "opportunity_comments": "MQ - 2026.01.14\n* Enable an LLM backend (Cortex/OpenAI) for real summaries\n* Review transcript and confirm next steps & risks",
+      "customer_pain": [],
+      "use_cases": [],
+      "stakeholders": [],
+      "competitors_or_alternatives": [],
+      "products_or_features_discussed": [],
+      "risks_or_blockers": [],
+      "next_steps": [],
+      "open_questions": [
+        "That's a great Mitch question.",
+        "Yeah. So Dan, it's a really good question. And you're bringing me back to my days at fivetran, when I was over there with tarballs and Jesus",
+        "Yeah, perfect. The last question that I had was regarding data lineage, and I don't know if there are like built in tools for data lineage, ",
+        "It's a good question. The elations at lands, those are the world, we know how expensive they can get. So because Riley and I deal with small",
+        "That's a good question. You probably can get at that. You would query that via the information schema in each database. So you'd go in there"
+      ],
+      "confidence": "medium",
+      "tags": [],
+      "model_name": "MockSummarizer",
+      "debug": {
+        "source": "mock"
+      }
+    }
+  ]
+}

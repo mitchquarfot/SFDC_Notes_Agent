@@ -1,0 +1,9 @@
+streamlit==1.41.1
+python-dotenv==1.0.1
+pandas==2.2.3
+
+# Optional LLM + integrations (enable via env + installing these)
+snowflake-connector-python==3.13.2
+simple-salesforce==1.12.6
+requests==2.32.3
+
