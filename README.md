@@ -72,6 +72,19 @@ streamlit run app/main.py
 - `.vtt`: timestamps/headers stripped
 - `.srt`: sequence numbers/timestamps stripped
 
+## Weekly updates without transcripts (voice/email/slack)
+If you don’t have a call recording/transcript, use the **“Weekly update (no transcript)”** tab:
+- **Option A (voice)**: record a quick Voice Memo (or Zoom audio) and upload `.m4a`/`.wav`/`.mp3`. If you enable transcription, the app will transcribe then generate SFDC notes.
+- **Option B (text)**: paste your email/slack summary and generate the same SFDC-ready “Opportunity Comments” block.
+
+### Enabling audio transcription (OpenAI Whisper)
+1) Set in `.env`:
+- `TRANSCRIPTION_BACKEND=openai`
+- `OPENAI_API_KEY=...`
+- Optional: `OPENAI_AUDIO_MODEL=whisper-1`
+
+2) Upload an audio file in the Weekly update tab and click **Generate weekly notes**.
+
 ## Salesforce upload options
 - **CSV export**: safest default; you can import/update as your org allows
 - **API push (optional)**: uses `simple-salesforce` (username/password/token). For this app, we push into **Solution Assessment → Opportunity Comments** (configurable) by:
