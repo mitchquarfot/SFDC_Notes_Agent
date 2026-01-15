@@ -28,6 +28,40 @@ Copy `env.example` to `.env` and fill in one of:
 cp env.example .env
 ```
 
+## Snowflake Cortex auth (recommended: key-pair)
+This app supports **Snowflake key-pair authentication** for Cortex calls.
+
+### 1) Generate an RSA key (PKCS8 PEM)
+Unencrypted (simplest):
+
+```bash
+openssl genrsa 2048 > snowflake_rsa_key.pem
+openssl pkcs8 -topk8 -inform PEM -outform PEM -in snowflake_rsa_key.pem -out snowflake_rsa_key.p8 -nocrypt
+openssl rsa -in snowflake_rsa_key.pem -pubout -out snowflake_rsa_key.pub
+```
+
+Encrypted (recommended if you store it on disk):
+
+```bash
+openssl genrsa 2048 > snowflake_rsa_key.pem
+openssl pkcs8 -topk8 -inform PEM -outform PEM -in snowflake_rsa_key.pem -out snowflake_rsa_key.p8
+openssl rsa -in snowflake_rsa_key.pem -pubout -out snowflake_rsa_key.pub
+```
+
+### 2) Register the public key on your Snowflake user
+In Snowflake, set the public key on your user (choose RSA_PUBLIC_KEY or RSA_PUBLIC_KEY_2):
+
+```sql
+ALTER USER <your_user> SET RSA_PUBLIC_KEY='<paste contents of snowflake_rsa_key.pub without header/footer and newlines>';
+```
+
+### 3) Configure `.env`
+Set:
+- `LLM_BACKEND=snowflake_cortex`
+- `SNOWFLAKE_AUTH_METHOD=keypair`
+- `SNOWFLAKE_PRIVATE_KEY_PATH=/absolute/path/to/snowflake_rsa_key.p8`
+- `SNOWFLAKE_PRIVATE_KEY_PASSPHRASE=...` (only if encrypted)
+
 ### 3) Run the app
 ```bash
 streamlit run app/main.py
